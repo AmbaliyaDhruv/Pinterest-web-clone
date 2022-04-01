@@ -62,10 +62,12 @@ const change=(e)=>{
 
 const submit=(e)=>{
   e.preventDefault()
-  axios.post('https://marriott-bonvoy.herokuapp.com/login',formData).then(()=>{
-     
+  axios.post('https://marriott-bonvoy.herokuapp.com/login',formData).then(({data})=>{
+
+      localStorage.setItem('user',JSON.stringify(data.user))
       alert("Login Successful")
       localStorage.setItem('token', 'true')
+      
       setFormData({
         email:'',
         password:'',

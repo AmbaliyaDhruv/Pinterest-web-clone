@@ -1,0 +1,65 @@
+.MainDiv{
+    padding: 30px;
+    margin: auto;
+    width: 300px;
+    height: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.ProfileImg{
+    width: 200px;
+    border-radius: 50%;
+    margin-top: 90px;
+    cursor: pointer;
+}
+.Name {
+    font-size: 36px;
+    color: #111;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    cursor: pointer;
+    margin-bottom: -21px;
+  }
+  .UserName {
+    font-size: 16px;
+    color: #111;
+    font-weight: 300;
+     margin-top: 20px;
+    cursor: pointer;
+  }
+  .SocialFollowing {
+    margin-top: 10px;
+  }
+
+  span:last-child {
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .AddDiv{
+      background-color:aliceblue;
+      width: 80px;
+      margin: auto;
+      text-align: center;
+      border-radius: 100%;
+      margin-bottom: 5px;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+      cursor: pointer;
+    }
+
+.AddSpan{
+    position: relative;
+    bottom: 6px;
+    font-size: 60px;
+}
+.QusSpan{
+    position: relative;
+    bottom: 6px;
+    font-size: 60px;
+}
+.IconDiv{
+    width: 80px;
+    position: relative;
+    left: 1400px;
+    top: 80px;
+}

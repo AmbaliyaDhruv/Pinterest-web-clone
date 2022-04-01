@@ -6,16 +6,27 @@ import IconButton from '@mui/material/IconButton'
 import SearchIcon from '@mui/icons-material/Search';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import TextsmsIcon from '@mui/icons-material/Textsms';
-import FaceIcon from '@mui/icons-material/Face';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+
+import Avatar from '@mui/material/Avatar';
+import LogoutIcon from '@mui/icons-material/Logout';
+import { deepOrange, deepPurple } from '@mui/material/colors';
+import { Link } from 'react-router-dom';
 function Header({onSubmit}) {
 
   const [input,setInput]=useState("");
 
+  let {name}=JSON.parse(localStorage.getItem('user')) || {}
+ 
   const onSubmitevent=(e)=>{
  e.preventDefault();
  onSubmit(input);
  setInput("");
+  }
+
+  const handleLogOut=()=>{
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    window.location.reload()
   }
   return (
   <Wrapper>
@@ -54,13 +65,15 @@ function Header({onSubmit}) {
       <IconButton>
         <TextsmsIcon/>
      </IconButton>
-
+ 
+    <LinkTo to="/pin/profile" >
         <IconButton>
-        <FaceIcon/>
+        <Avatar sx={{ bgcolor:"#e60013"}}>{name[0] || "U"}</Avatar>
         </IconButton>
+     </LinkTo>
 
         <IconButton>
-        <KeyboardArrowDownIcon/>
+        <LogoutIcon onClick={handleLogOut} />
         </IconButton>
 
     </IconsWrapper>
@@ -167,9 +180,15 @@ const SearchWrapper = styled.div`
 
   const IconsWrapper = styled.div`
   margin-left: 10px;
+  
+  
+  
   `
 
   const A=styled.a`
   text-decoration: none;
 
   `
+
+  const LinkTo=styled(Link)`
+  text-decoration: none;`

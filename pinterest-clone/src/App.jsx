@@ -9,6 +9,7 @@ import { Routes, Route } from "react-router";
 import {SinglePin} from './components/SinglePin';
 import NoteFound from './components/NoteFound';
 import FirstPage from './components/FirstPage';
+import Profile from './components/profile';
 
 function App() {
  
@@ -73,6 +74,7 @@ function App() {
     
     <Route path="/" element={localStorage.getItem("token")!==null?<Mainboard pins={pins}/>:<FirstPage/>} />
     <Route path="/pin/:id" element={<SinglePin/>} />
+    <Route path="/pin/profile" element={<Profile/>} />
     <Route path="*" element={<NoteFound/>} />
     </Routes>
     </div>
