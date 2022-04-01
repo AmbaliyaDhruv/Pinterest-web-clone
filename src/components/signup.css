@@ -1,0 +1,54 @@
+#main-register-div {
+  border: 1px solid transparent;
+  width: 100%;
+  margin: auto;
+  line-height: 20px;
+  align-content: center;
+}
+#heading {
+  font-size: 35px;
+  padding-left: 8%;
+  font-weight: 500;
+}
+#sub-heading {
+  padding-left: 35%;
+  margin-top: -10px;
+}
+.register {
+  border: 1px solid transparent;
+  width: 75%;
+  margin: auto;
+}
+.register input {
+  border-radius: 17px;
+  font-size: 17px;
+  padding: 10px;
+  width: 90%;
+  height: 25px;
+  margin-top: 2.5%;
+  border: none;
+  /* border-color: grey; */
+  border: 2px solid grey;
+}
+.Btn {
+  border: 1px solid transparent;
+  width: 75%;
+  margin: auto;
+  text-align: center;
+}
+.btn1 {
+  width: 98%;
+  border-radius: 20px;
+  height: 40px;
+  margin-top: 4%;
+  background-color: rgb(216, 40, 40);
+  border-color: transparent;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.below-btn {
+  font-size: 13px;
+  /* line-height: ; */
+}
