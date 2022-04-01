@@ -1,3 +1,6 @@
+
+
+
 body {
     margin: 0;
     padding: 0;
@@ -18,6 +21,7 @@ body {
 .bttns{
     display: flex;
     align-content: end;
+    color: black;
     gap: 15px;
     margin: 58%;
 }

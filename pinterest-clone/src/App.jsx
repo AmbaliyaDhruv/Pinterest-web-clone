@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import { Routes, Route } from "react-router";
 import {SinglePin} from './components/SinglePin';
 import NoteFound from './components/NoteFound';
+import FirstPage from './components/FirstPage';
 
 function App() {
  
@@ -59,18 +60,21 @@ function App() {
     getNewPins()
   },[])
 
+
   return (
     <div className="App">
       
       
-  
-      <Header onSubmit={onSearchSubmit}/>
+  {
+    localStorage.getItem("token")!==null?<Header onSubmit={onSearchSubmit}/>:null
+  }
+      
   <Routes>
     
-    <Route path="/" element={<Mainboard pins={pins}/>} />
+    <Route path="/" element={localStorage.getItem("token")!==null?<Mainboard pins={pins}/>:<FirstPage/>} />
     <Route path="/pin/:id" element={<SinglePin/>} />
     <Route path="*" element={<NoteFound/>} />
-  </Routes>
+    </Routes>
     </div>
   );
 }

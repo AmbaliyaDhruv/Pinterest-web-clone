@@ -1,12 +1,13 @@
-
 import * as React from "react";
 import Box from "@mui/material/Box";
+import { useState } from "react";
+import axios from 'axios'
+
 import Modal from "@mui/material/Modal";
 import PinterestIcon from "@mui/icons-material/Pinterest";
 import styled from "styled-components";
 import './signup.css'
-import { useState } from "react";
-import axios from "axios"
+
 const Logo = styled.div`
   .MuiSvgIcon-root {
     color: #e60013;
@@ -18,11 +19,11 @@ const Logo = styled.div`
 `;
 
 const Button= styled.button`
-background-color: rgb(222, 188, 188);
+background-color: rgb(246, 9, 9);
 border-radius: 20px;
 height: 38px;
+color:white;
 margin-top: 5px;
-color:black;
 `
 
 const style = {
@@ -35,22 +36,19 @@ const style = {
   border: "transparent",
   boxShadow: 50,
   p: 4,
+  borderRadius: 7,
 };
 
-export function Signup() {
+export function Login() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const [formData, setFormData]=useState({
-    name:'',
-    email:"",
+    email:'',
     password:'',
-    username:"",
-    mobile:"",
-    description:""
-})
-console.log(formData)
+  })
+
 
 const change=(e)=>{
   const {id,value}=e.target 
@@ -64,24 +62,30 @@ const change=(e)=>{
 
 const submit=(e)=>{
   e.preventDefault()
-  axios.post('https://marriott-bonvoy.herokuapp.com/Register',formData).then(()=>{
-      alert("details updated")
+  axios.post('https://marriott-bonvoy.herokuapp.com/login',formData).then(()=>{
+     
+      alert("Login Successful")
+      localStorage.setItem('token', 'true')
       setFormData({
-        name:'',
-        email:"",
+        email:'',
         password:'',
-        username:"",
-        mobile:"",
-        description:""
-      
-      })
+       })
+      window.location.reload()
+  }).catch(err=>{
+      alert("Login Failed")
+      setFormData({
+        email:'',
+        password:'',
+       })
   })
 
 }
 
   return (
     <div>
-      <Button  className='signup' onClick={handleOpen}>SignUp</Button>
+      {/* <Button onClick={handleOpen}>Open modal</Button> */}
+    <Button  onClick={handleOpen} className='login'>Login</Button>
+
       <Modal
         open={open}
         onClose={handleClose}
@@ -93,63 +97,39 @@ const submit=(e)=>{
             <Logo>
               <PinterestIcon />
             </Logo>
-            <h1 id="heading">Welcome to Pinterst</h1>
-            <p id="sub-heading">Find new ideas to try</p>
-
+            <h1 id="heading">Welcome to Pinterest</h1>
             <div id="myForm">
-              <form  onSubmit={submit} className="register">
-              <input
-                  className="margin_txt"
-                  id="name"
-                  type="text"
-                  placeholder="Name"
-                  onChange={change}
-                />
+              <form onSubmit={submit} className="register">
                 <input
                   className="margin_txt"
+                 
                   id="email"
+                  value={formData.email}
                   type="email"
+                  
                   placeholder="Email"
                   onChange={change}
                 />
                 <input
                   className="margin_txt"
                   id="password"
+                  value={formData.password}
                   type="password"
-                  placeholder="Create a password"
-                  onChange={change}
-                />
-                <input type="text"  id="username" placeholder="Username" className="margin_txt" onChange={change} />
-                <input
-                  className="margin_txt"
-                  id="mobile"
-                  type="number"
-                  placeholder="Mobile"
-                  onChange={change}
-                />
-                <input
-                  className="margin_txt"
-                  id="description"
-                  type="text"
-                  placeholder="Description"
+                  placeholder="Password"
                   onChange={change}
                 />
                 <input type='submit' className="margin_txt1"/>
-               
-                
-                
               </form>
               <div className="Btn">
-  
-  <p className="below-btn">
-    By continuing, you agree to Pinterest's <br />{" "}
-    <strong>Terms of Service</strong> and acknowledge you've read
-    our <br /> <strong>Privacy Policy</strong>
-  </p>
-  <p>
-    Already a member? <a href="#">Log in</a>
-  </p>
-</div>
+                <p className="below-btn">
+                  By continuing, you agree to Pinterest's <br />{" "}
+                  <strong>Terms of Service</strong> and acknowledge you've read
+                  our <br /> <strong>Privacy Policy</strong>
+                </p>
+                <p>
+                  Not on Pinterest yet?<a href="#">Sign up</a>
+                </p>
+              </div>
             </div>
           </div>
         </Box>

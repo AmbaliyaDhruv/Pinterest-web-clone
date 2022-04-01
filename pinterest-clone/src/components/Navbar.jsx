@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-// import { Link } from "react-router-dom";
+
 import styled from 'styled-components'
 import PinterestIcon from '@mui/icons-material/Pinterest';
 import IconButton from '@mui/material/IconButton'
@@ -14,25 +13,24 @@ function Navbar() {
   return (
       <>
       
-      <Wrapper>
+   <Wrapper>
     <LogoWrapper>
       <IconButton>
       <PinterestIcon/><p className='pin'>Pinterest</p>
       </IconButton>
     </LogoWrapper>
    <div className='bttns'>
-   <button>About</button>
+    <button>About</button>
     <button>Business</button>
     <button>Blog</button>
     <Login/>
     <Signup/>
-    {/* <button className='login'>Login</button> */}
-    {/* <button className='signup'>SignUp</button> */}
+
    </div>
   </Wrapper>
           
           
-          </>
+   </>
 
           
   
@@ -48,7 +46,7 @@ const Wrapper = styled.div`
   padding:12px 4px 4px 16px;
   background-color: white;
   position: fixed;
-  margin-top:-120px;
+  margin-top: -120px;
  z-index: 1;
   width:100%;
   color:red;

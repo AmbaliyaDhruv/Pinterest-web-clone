@@ -1,3 +1,5 @@
+
+
 #main-register-div {
   border: 1px solid transparent;
   width: 100%;
@@ -9,6 +11,8 @@
   font-size: 35px;
   padding-left: 8%;
   font-weight: 500;
+  margin: 10px;
+  margin-bottom: 20px;
 }
 #sub-heading {
   padding-left: 35%;
