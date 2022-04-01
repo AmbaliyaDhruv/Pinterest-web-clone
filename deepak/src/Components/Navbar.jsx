@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import PinterestIcon from '@mui/icons-material/Pinterest';
 import IconButton from '@mui/material/IconButton'
 import './styles.css'
+import {Login} from './login'
+import {Signup} from './signup'
 
 
 function Navbar() {
@@ -15,13 +17,15 @@ function Navbar() {
       <Wrapper>
     <LogoWrapper>
       <IconButton>
-      <PinterestIcon/><p>Pinterest</p>
+      <PinterestIcon/><p className='pin'>Pinterest</p>
       </IconButton>
     </LogoWrapper>
    <div className='bttns'>
    <button>About</button>
     <button>Business</button>
     <button>Blog</button>
+    <Login/>
+    <Signup/>
     {/* <button className='login'>Login</button> */}
     {/* <button className='signup'>SignUp</button> */}
    </div>
