@@ -16,7 +16,7 @@ const images = [
   {
     
     imgPath:
-      "Chai Time Snacks Idea ",
+      "Chai Time Snacks Idea",
       color:"red"
 
   },

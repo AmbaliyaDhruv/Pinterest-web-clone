@@ -19,11 +19,21 @@ const Logo = styled.div`
 `;
 
 const Button= styled.button`
-background-color: rgb(246, 9, 9);
-border-radius: 20px;
-height: 38px;
-color:white;
-margin-top: 5px;
+ background-color:#e60013;
+  text-decoration: none;
+   color:black;
+   font-weight: 700;
+   display: flex;
+  height:48px;
+  min-width:123px;
+  align-items:center;
+  justify-content:center;
+  border-radius:20px;
+ cursor: pointer;
+   :hover{
+   background-color: #e1e1e1;
+ }
+ 
 `
 
 const style = {
@@ -40,6 +50,8 @@ const style = {
 };
 
 export function Login() {
+
+ 
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -128,9 +140,7 @@ const submit=(e)=>{
                   <strong>Terms of Service</strong> and acknowledge you've read
                   our <br /> <strong>Privacy Policy</strong>
                 </p>
-                <p>
-                  Not on Pinterest yet?<a href="#">Sign up</a>
-                </p>
+               
               </div>
             </div>
           </div>

@@ -9,7 +9,7 @@ import TextsmsIcon from '@mui/icons-material/Textsms';
 
 import Avatar from '@mui/material/Avatar';
 import LogoutIcon from '@mui/icons-material/Logout';
-import { deepOrange, deepPurple } from '@mui/material/colors';
+
 import { Link } from 'react-router-dom';
 function Header({onSubmit}) {
 
@@ -26,7 +26,8 @@ function Header({onSubmit}) {
   const handleLogOut=()=>{
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    window.location.reload()
+   window.location.href='/';
+    
   }
   return (
   <Wrapper>
@@ -72,10 +73,11 @@ function Header({onSubmit}) {
         </IconButton>
      </LinkTo>
 
+     
         <IconButton>
         <LogoutIcon onClick={handleLogOut} />
         </IconButton>
-
+   
     </IconsWrapper>
   </Wrapper>
   )
@@ -99,7 +101,7 @@ const Wrapper = styled.div`
  const LogoWrapper = styled.div`
  .MuiSvgIcon-root{
    color: #e60013;
-   font-size: 32px;
+   font-size: 42px;
    cursor: pointer;
  }
  

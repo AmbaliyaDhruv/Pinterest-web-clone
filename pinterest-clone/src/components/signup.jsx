@@ -4,6 +4,8 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import PinterestIcon from "@mui/icons-material/Pinterest";
 import styled from "styled-components";
+
+
 import './signup.css'
 import { useState } from "react";
 import axios from "axios"
@@ -18,11 +20,21 @@ const Logo = styled.div`
 `;
 
 const Button= styled.button`
-background-color: rgb(222, 188, 188);
-border-radius: 20px;
-height: 38px;
-margin-top: 5px;
-color:black;
+ background-color:lightgray;
+  text-decoration: none;
+   color:black;
+   font-weight: 700;
+   display: flex;
+  height:48px;
+  min-width:123px;
+  align-items:center;
+  justify-content:center;
+  border-radius:20px;
+ cursor: pointer;
+   :hover{
+   background-color: #e1e1e1;
+ }
+ 
 `
 
 const style = {
@@ -35,10 +47,13 @@ const style = {
   border: "transparent",
   boxShadow: 50,
   p: 4,
+  padding: "18px 30px",
+  borderRadius: 7,
 };
 
 export function Signup() {
   const [open, setOpen] = React.useState(false);
+  
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -64,7 +79,7 @@ const change=(e)=>{
 
 const submit=(e)=>{
   e.preventDefault()
-  axios.post('https://marriott-bonvoy.herokuapp.com/Register',formData).then(()=>{
+ axios.post('https://marriott-bonvoy.herokuapp.com/Register',formData).then(()=>{
       alert("details updated")
       setFormData({
         name:'',
@@ -75,8 +90,21 @@ const submit=(e)=>{
         description:""
       
       })
-  })
 
+  })
+.catch(err=>{
+  alert("try another email id")
+  setFormData({
+    name:'',
+    email:"",
+    password:'',
+    username:"",
+    mobile:"",
+    description:""
+  
+  })
+})
+ 
 }
 
   return (
@@ -146,9 +174,7 @@ const submit=(e)=>{
     <strong>Terms of Service</strong> and acknowledge you've read
     our <br /> <strong>Privacy Policy</strong>
   </p>
-  <p>
-    Already a member? <a href="#">Log in</a>
-  </p>
+ 
 </div>
             </div>
           </div>

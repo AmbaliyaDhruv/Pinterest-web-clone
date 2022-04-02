@@ -41,22 +41,22 @@ export default Navbar
 
 const Wrapper = styled.div`
   display: flex;
-  align-items: center;
+  justify-content:space-between;
   height: 56px;
   padding:12px 4px 4px 16px;
   background-color: white;
   position: fixed;
   margin-top: -120px;
- z-index: 1;
-  width:100%;
+  z-index: 1;
+  width:98%;
   color:red;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+ 
  `
 
  const LogoWrapper = styled.div`
  .MuiSvgIcon-root{
    color: #e60013;
-   font-size: 45px;
+   font-size: 35px;
    cursor: pointer;
    
 }
