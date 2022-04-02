@@ -10,6 +10,8 @@ import {SinglePin} from './components/SinglePin';
 import NoteFound from './components/NoteFound';
 import FirstPage from './components/FirstPage';
 import Profile from './components/profile';
+import AddNewPin from './components/AddNewPin';
+import Upload from './components/Upload';
 
 function App() {
  
@@ -69,12 +71,13 @@ function App() {
   {
     localStorage.getItem("token")!==null?<Header onSubmit={onSearchSubmit}/>:null
   }
-      
+   <AddNewPin/>   
   <Routes>
     
     <Route path="/" element={localStorage.getItem("token")!==null?<Mainboard pins={pins}/>:<FirstPage/>} />
     <Route path="/pin/:id" element={<SinglePin/>} />
     <Route path="/pin/profile" element={<Profile/>} />
+    <Route path="/upload" element={<Upload/>} />
     <Route path="*" element={<NoteFound/>} />
     </Routes>
     </div>

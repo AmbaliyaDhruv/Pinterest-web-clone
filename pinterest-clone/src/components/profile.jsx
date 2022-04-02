@@ -1,6 +1,7 @@
 import React from 'react'
 import "./profile.css"
 import Avatar from '@mui/material/Avatar';
+import HomeLayout from './HomeLayout';
 
 const Profile = () => {
 
@@ -17,17 +18,9 @@ const Profile = () => {
         </div> 
        </div>
 
-       
+       <HomeLayout/>
       
-        <div className='IconDiv'>
-       <div className='AddDiv'>
-       <span className='AddSpan'>+</span>
-       </div>
-
-       <div className='AddDiv'>
-       <span className='QusSpan'>?</span>
-       </div>
-      </div>
+      
         </>
   )
 }
