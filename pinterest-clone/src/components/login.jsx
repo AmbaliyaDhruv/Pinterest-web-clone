@@ -6,7 +6,8 @@ import axios from 'axios'
 import Modal from "@mui/material/Modal";
 import PinterestIcon from "@mui/icons-material/Pinterest";
 import styled from "styled-components";
-import './signup.css'
+import './signup.css';
+import LinearProgress from '@mui/material/LinearProgress';
 
 const Logo = styled.div`
   .MuiSvgIcon-root {
@@ -51,7 +52,7 @@ const style = {
 
 export function Login() {
 
- 
+ const[cur,setCur]=useState(false)
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -74,9 +75,11 @@ const change=(e)=>{
 
 const submit=(e)=>{
   e.preventDefault()
+ setCur(true)
   axios.post('https://marriott-bonvoy.herokuapp.com/login',formData).then(({data})=>{
 
       localStorage.setItem('user',JSON.stringify(data.user))
+      setCur(false)
       alert("Login Successful")
       localStorage.setItem('token', 'true')
       
@@ -86,6 +89,7 @@ const submit=(e)=>{
        })
       window.location.reload()
   }).catch(err=>{
+    setCur(false)
       alert("Login Failed")
       setFormData({
         email:'',
@@ -99,7 +103,9 @@ const submit=(e)=>{
     <div>
       {/* <Button onClick={handleOpen}>Open modal</Button> */}
     <Button  onClick={handleOpen} className='login'>Login</Button>
-
+    {cur?<Box  sx={{ width: '100%', position:"absolute",left:"0%",top:"5px",zIndex:1 }}>
+      <LinearProgress   />
+    </Box>:null}
       <Modal
         open={open}
         onClose={handleClose}

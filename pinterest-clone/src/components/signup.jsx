@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import PinterestIcon from "@mui/icons-material/Pinterest";
 import styled from "styled-components";
+import LinearProgress from '@mui/material/LinearProgress';
 
 
 import './signup.css'
@@ -53,7 +54,7 @@ const style = {
 
 export function Signup() {
   const [open, setOpen] = React.useState(false);
-  
+  const[cur,setCur]=useState(false)
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -78,8 +79,11 @@ const change=(e)=>{
 }
 
 const submit=(e)=>{
+  setCur(true)
   e.preventDefault()
  axios.post('https://marriott-bonvoy.herokuapp.com/Register',formData).then(()=>{
+  setCur(false)
+  handleClose()
       alert("details updated")
       setFormData({
         name:'',
@@ -93,6 +97,8 @@ const submit=(e)=>{
 
   })
 .catch(err=>{
+  setCur(false)
+  
   alert("try another email id")
   setFormData({
     name:'',
@@ -110,6 +116,9 @@ const submit=(e)=>{
   return (
     <div>
       <Button  className='signup' onClick={handleOpen}>SignUp</Button>
+      {cur?<Box  sx={{ width: '100%', position:"absolute",left:"0%",top:"5px",zIndex:1 }}>
+      <LinearProgress   />
+    </Box>:null}
       <Modal
         open={open}
         onClose={handleClose}

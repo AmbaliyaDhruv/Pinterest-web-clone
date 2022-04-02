@@ -71,7 +71,10 @@ function App() {
   {
     localStorage.getItem("token")!==null?<Header onSubmit={onSearchSubmit}/>:null
   }
-   <AddNewPin/>   
+  {
+    localStorage.getItem("token")!==null?<AddNewPin/>:null
+  }
+   
   <Routes>
     
     <Route path="/" element={localStorage.getItem("token")!==null?<Mainboard pins={pins}/>:<FirstPage/>} />
