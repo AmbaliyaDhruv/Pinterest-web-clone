@@ -28,7 +28,14 @@ function HomeLayout() {
     const[datas,setDatas]=useState([])
   
     const [open, setOpen] =useState(false);
-  const handleOpen = () => setOpen(true);
+  const handleOpen = () =>{
+    let check=localStorage.getItem("token")
+    if(check===null){
+      setOpen(true)
+    }
+    
+    
+  } 
   const handleClose = () => setOpen(false);
     const getImages=(term)=>{
         return unplash.get("https://api.unsplash.com/search/photos",{
