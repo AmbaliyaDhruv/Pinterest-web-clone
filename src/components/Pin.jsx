@@ -10,7 +10,7 @@ function Pin({urls,alt_description,id}) {
         <Container>
          
           <LinkComp href={`/pin/${id}`}>
-          <img src={urls?.regular} alt="pin"/>
+          <img src={urls?.regular} loading="lazy" decoding='async' alt="pin"/>
           <h4>{alt_description===null?alt_description:alt_description.charAt(0).toUpperCase() + alt_description.slice(1)}</h4>
           </LinkComp>
           
@@ -37,6 +37,7 @@ width:236px;
 img{
     cursor:zoom-in;
     border-radius: 16px;
+    background-color: #959595;
     object-fit: cover;
     opacity: 1;
     display: block;

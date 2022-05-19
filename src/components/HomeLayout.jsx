@@ -71,7 +71,7 @@ function HomeLayout() {
           <ImageList variant="masonry" cols={4} gap={15}>
             {datas.map((item) => (
               <ImageListItem  sx={{borderRadius:"16px"}} key={item.img}>
-               <img onClick={handleOpen} style={{borderRadius:"16px"}}
+               <img onClick={handleOpen}  decoding='async' style={{borderRadius:"16px",background:"grey"}}
                   src={item.urls.regular}
                   srcSet={item.urls.regular}
                   alt={item.title}
